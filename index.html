@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<title>vs斗兽棋</title>
+	<link rel="stylesheet" href="../public/animate.min.css">
+	<link rel="stylesheet" href="game.css">
+	<script src="../../common/lib/jquery.min.js"></script>
+	<script src="../../common/lib/jquery.cookie.js"></script>
+	<script src="../../common/lib/fastclick.js"></script>
+	<script src="encoding-indexes.js"></script>
+	<script src="encoding.js"></script>
+	<script src="bson.js"></script>
+	<script src="../public/socketNetNew.js"></script>
+	<script src="core.js"></script>
+	<script src="net.js"></script>
+</head>
+<body>
+		<div class="box">
+			<div class="item item1"></div>
+			<div class="item item2"></div>
+			<div class="item item3"></div>
+			<div class="item item4"></div>
+			<div class="item item5"></div>
+			<div class="item item6"></div>
+			<div class="item item7"></div>
+			<div class="item item8"></div>
+			<div class="item item9"></div>
+			<div class="animals"></div>
+		</div>
+		<div class="ref"></div>
+		<div class="tool-bar">
+			<div class="tool-bar-btn out-btn"></div>
+			<div class="tool-bar-btn record-btn"></div>
+			<div class="tool-bar-btn voice-btn"></div>
+			<div class="tool-bar-btn music-btn"></div>
+		</div>
+		<!-- 烟雾层 -->
+		<!-- <div id="smog-layer"></div> -->
+		<div class="user-box">
+			<div class="user user1 x-team">
+				<div class="box-short box-img">
+					<img class="user-img" src="images/timg.jpeg" alt="你">
+					<span class="icon-little"></span>
+				</div>
+				<div class="box-long ">
+					<div class="litte-bar2 nick-bar">大河的阿凡达</div>
+					<div class="litte-bar3">
+						<a href="javascript:void(0);">关注</a>
+					</div>
+					
+				</div>
+				<div class="time-box time1"><span class="time">60</span>s</div>
+			</div>
+			<div class="user user2 x-team">
+				<div class="box-short box-img">
+					<img class="user-img" src="images/timg.jpeg" alt="对手">
+					<span class="icon-little"></span>
+				</div>
+				<div class="box-long">
+					<div class="litte-bar2 nick-bar">斗罗大陆大</div>
+					<div class="litte-bar3">
+						<a href="javascript:void(0);">关注</a>
+					</div>
+				</div>
+				<div class="time-box time2"><span class="time">60</span>s</div>
+			</div>
+		</div>
+		<div id="second-box">
+			<h3></h3>
+		</div>
+		<div class="mes-box">
+			<h5 id="responseText" style="display: none;">未初始化。。</h5>
+
+			<div class="dialog-match">
+				<button id="match">开始匹配</button>
+			</div>
+			<div class="mesg-wrap">
+				<div class="each-team side1">你是X方</div>
+
+				<div class="give-up-box" style="display: block;">
+					<button id="giveup-btn">认输</button>
+				</div>
+			</div>
+		</div>
+		<div class="dialog-middle-box turn-tip p1">
+			<p>你的回合</p>
+		</div>
+		<div class="dialog-middle-box turn-tip p2">
+			<p>对手的回合</p>
+		</div>
+		<div class="dialog-start-tips">
+			<p>游戏开始</p>
+		</div>
+		<div class="dialog-layer">
+			<div class="dialog-box">
+				<p class="dialog-p">xxx赢了</p>
+			</div>
+		</div>
+		
+		<audio id='audio-loop'>你的浏览器不支持喔！</audio>
+
+		<script type="text/javascript">
+            $(function () {
+            	FastClick.attach(document.body);
+                GAME.start();
+                //预加载图片
+                setTimeout(function () {
+	                GAME.getPreloadImg([
+						'./images/bg.png',
+						'./images/elephant_r.png',
+						'./images/elephant_b.png',
+						'./images/lion_r.png',
+						'./images/lion_b.png',
+						'./images/tigger_r.png',
+						'./images/tigger_b.png',
+						'./images/wolf_r.png',
+						'./images/wolf_b.png',
+						'./images/dog_r.png',
+						'./images/dog_b.png',
+						'./images/cat_r.png',
+						'./images/cat_b.png',
+						'./images/mouse_r.png',
+						'./images/mouse_b.png',
+						'./images/animation_01.png',
+						'./images/animation_02.png',
+						'./images/animation_03.png',
+						'./images/animation_04.png'
+					]);
+                },0);
+
+            });
+		</script>
+</body>
+</html>
